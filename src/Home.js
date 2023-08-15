@@ -10,6 +10,8 @@ import BlogList from './BlogList';
         { title: "Another Website", body: "lorem ipsum...", author: "Emmanuel", id: 4 },
     ]);
 
+    const [name, setName] = useState("Arawa");
+
     const handleDelete = (id) => {
         const newBlogs = blogs.filter(blog => blog.id !== id);
         setBlogs(newBlogs);
@@ -18,12 +20,14 @@ import BlogList from './BlogList';
 
     useEffect(() => {
         console.log("Use effect running")
-        console.log(blogs)
-    });
+        console.log(name)
+    }, [name]);
 
    return (
      <div className='home'>
         <BlogList blogs={blogs} title="All Blogs!" handleDelete={handleDelete}/>
+        <button onClick={() => setName("Emmanuel")}>Change Name</button>
+        <p>{ name }</p>
      </div>
    )
  }
