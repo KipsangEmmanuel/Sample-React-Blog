@@ -1,4 +1,4 @@
- import React, { useState } from 'react'
+ import React, { useEffect, useState } from 'react'
 import BlogList from './BlogList';
 
  const Home = () => {
@@ -15,6 +15,11 @@ import BlogList from './BlogList';
         setBlogs(newBlogs);
 
     }
+
+    useEffect(() => {
+        console.log("Use effect running")
+        console.log(blogs)
+    });
 
    return (
      <div className='home'>
