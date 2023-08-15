@@ -7,12 +7,18 @@ import BlogList from './BlogList';
         { title: "My new Website", body: "lorem ipsum...", author: "Emmanuel", id: 1 },
         { title: "Welome Party!", body: "lorem ipsum...", author: "Kipsang", id: 2 },
         { title: "Web dev dev top tips", body: "lorem ipsum...", author: "Arawa", id: 3 },
-
+        { title: "Another Website", body: "lorem ipsum...", author: "Emmanuel", id: 4 },
     ]);
+
+    const handleDelete = (id) => {
+        const newBlogs = blogs.filter(blog => blog.id !== id);
+        setBlogs(newBlogs);
+
+    }
+
    return (
      <div className='home'>
-        <BlogList blogs={blogs} title="All Blogs!"/>
-
+        <BlogList blogs={blogs} title="All Blogs!" handleDelete={handleDelete}/>
      </div>
    )
  }
